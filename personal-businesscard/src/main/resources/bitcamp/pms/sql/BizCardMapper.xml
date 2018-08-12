@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.pms.dao.BizCardDao">
+
+  <!-- 컬럼명과 객체의 프로퍼티 명을 연결한다. -->
+  <resultMap type="BizCard" id="BizCardMap">
+    <id column="bzno" property="no" />
+    <result column="name" property="name" />
+    <result column="email" property="email"/>
+    <result column="pwd" property="password"/>
+    <result column="tel" property="tel" />
+    <result column="phone" property="phone"/>
+    <result column="fax" property="fax"/>
+    <result column="memo" property="memo"/>
+  </resultMap>
+
+
+  <insert id="insert" parameterType="BizCard"
+  useGeneratedKeys="true" keyColumn="bzno" keyProperty="no">
+    insert into pms_bizcard(name,phone,tel,fax,email,memo) 
+    values(#{name},#{phone},#{tel},#{fax},#{email},#{memo});
+  </insert>
+
+
+
+
+</mapper>
+
+
+
+
