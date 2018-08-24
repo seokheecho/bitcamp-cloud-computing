@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.newdeal.repository.PhotoLogRepository">
+
+  <resultMap type="photolog" id="photologMap">
+    <id column="PLNO" property="no"/>
+    <result column="MNO" property="memberNo"/>
+    <result column="DATE" property="date"/>
+    <result column="TITLE" property="title"/>
+    <result column="MEMO" property="memo"/>
+  </resultMap>
+
+  <insert id="insert" parameterType="photolog">
+    insert into P2_PHOTOLOG(
+        MNO,DATE,TITLE,MEMO)
+    values(
+        #{memberNo},
+        #{date},
+        #{title},
+        #{memo})
+  </insert>
+
+</mapper>
+
+
+
+

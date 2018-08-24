@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Daily Photo Log</title>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/common2.css">
+</head>
+<body>
+
+<div class="container">
+
+<header></header>
+
+<form>
+<div class="form-group row">
+    <label for="f-date" class="col-sm-2 col-form-label">날짜</label>
+    <div class="col-sm-10">
+      <input type="date" class="form-control-plaintext" 
+        id="f-date">
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <label for="f-title" class="col-sm-2 col-form-label">제목</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" 
+        id="f-title">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="f-memo" class="col-sm-2 col-form-label">메모</label>
+    <div class="col-sm-10">
+      <textarea class="form-control-plaintext" 
+        id="f-memo" rows="4"></textarea>
+    </div>
+  </div>
+  
+  <button id="add-btn" type="button" 
+          class="btn btn-sm btn-primary view-ctrl">추가</button>
+
+</form>
+
+
+<footer></footer>
+
+</div><!-- .container -->
+
+<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../js/jquery.bit.js"></script>
+<script src="../js/common2.js"></script>
+<script src="form.js"></script>
+</body>
+</html>
+
+
+
+
