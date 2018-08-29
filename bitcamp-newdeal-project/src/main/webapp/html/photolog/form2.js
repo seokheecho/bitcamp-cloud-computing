@@ -17,7 +17,7 @@ $('#add-btn').click(() => {
     });
 });
 
-
+/*
 $('#fileupload').fileupload({
   url: `${serverApiAddr}/json/photolog/add`,        // 서버에 요청할 URL
   dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
@@ -69,7 +69,7 @@ $('#fileupload').fileupload({
   }
 });
 
-
+*/
 
 
 

@@ -10,12 +10,13 @@ public class PhotoLog implements Serializable{
     protected String date;
     protected String title;
     protected String memo;
+    protected String files;
     
     
     @Override
     public String toString() {
         return "PhotoLog [no=" + no + ", memberNo=" + memberNo + ", date=" + date + ", title=" + title + ", memo="
-                + memo + "]";
+                + memo + ", files=" + files + "]";
     }
     
     
@@ -49,5 +50,11 @@ public class PhotoLog implements Serializable{
     public void setMemo(String memo) {
         this.memo = memo;
     }
-
+    public String getFiles() {
+        return files;
+    }
+    public void setFiles(String files) {
+        this.files = files;
+    }
+    
 }

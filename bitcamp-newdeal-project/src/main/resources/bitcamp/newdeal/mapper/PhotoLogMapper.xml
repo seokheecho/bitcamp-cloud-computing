@@ -10,16 +10,18 @@
     <result column="DATE" property="date"/>
     <result column="TITLE" property="title"/>
     <result column="MEMO" property="memo"/>
+    <result column="PHOTO" property="files"/>
   </resultMap>
 
   <insert id="insert" parameterType="photolog">
     insert into P2_PHOTOLOG(
-        MNO,DATE,TITLE,MEMO)
+        MNO,DATE,TITLE,MEMO,PHOTO)
     values(
         #{memberNo},
         #{date},
         #{title},
-        #{memo})
+        #{memo},
+        #{files})
   </insert>
 
 </mapper>
