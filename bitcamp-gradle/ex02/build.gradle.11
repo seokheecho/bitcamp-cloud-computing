@@ -1,0 +1,12 @@
+// 태스크 - 태스크 프로퍼티 설정하기 II
+// => 태스크를 생성할 때 congifure closure 등록과 함께 프로퍼티를 설정할 수 있다.
+// => 문법
+//    task 태스크명 (프로퍼티: 값, 프로퍼티: 값) {configure closure}
+
+task t1 (description: "태스크 t1") {
+    println "설정 클로저 => description=" + description
+
+    doLast { 
+        println "액션 클로저 => description=" + description
+    }
+}
