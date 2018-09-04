@@ -1,6 +1,7 @@
 package bitcamp.newdeal.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class PhotoLog implements Serializable{
     private static final long serialVersionUID = 1L;
@@ -10,13 +11,14 @@ public class PhotoLog implements Serializable{
     protected String date;
     protected String title;
     protected String memo;
-    protected String files;
+    // List<String> photoFiles;
+    protected List<PhotoFile> photoFiles;
     
     
     @Override
     public String toString() {
         return "PhotoLog [no=" + no + ", memberNo=" + memberNo + ", date=" + date + ", title=" + title + ", memo="
-                + memo + ", files=" + files + "]";
+                + memo + ", photoFiles=" + photoFiles + "]";
     }
     
     
@@ -50,11 +52,12 @@ public class PhotoLog implements Serializable{
     public void setMemo(String memo) {
         this.memo = memo;
     }
-    public String getFiles() {
-        return files;
+    public List<PhotoFile> getPhotoFiles() {
+        return photoFiles;
     }
-    public void setFiles(String files) {
-        this.files = files;
+    public void setPhotoFiles(List<PhotoFile> photoFiles) {
+        this.photoFiles = photoFiles;
     }
+    
     
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.newdeal.repository.PhotoLogRepository">
+
+
+  <resultMap type="photoFile" id="photoFileMap">
+    <id column="PFNO"      property="no"/>
+    <result column="PLNO"     property="photoLogNo"/>
+    <result column="PFNM"     property="photoFileName"/>
+  </resultMap>
+  
+  
+  <insert id="insert" parameterType="photoFile">
+    insert into P2_PHOTOFILE(PLNO,PFNM)
+    values(#{photoFileName}, #{photoLogNo})
+  </insert>
+  
+  
+</mapper>
+
+
+

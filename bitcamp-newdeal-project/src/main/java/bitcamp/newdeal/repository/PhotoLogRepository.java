@@ -4,6 +4,6 @@ import bitcamp.newdeal.domain.PhotoLog;
 
 public interface PhotoLogRepository {
     
-    int insert(PhotoLog photolog);
+    int insert(PhotoLog photoLog);
     
 }

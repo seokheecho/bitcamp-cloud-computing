@@ -9,6 +9,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,36 +24,35 @@ import bitcamp.newdeal.service.PhotoLogService;
 @RequestMapping("/photolog")
 public class PhotoLogController {
 
-    @Autowired PhotoLogService photoLogService;
     @Autowired ServletContext sc;
+    @Autowired PhotoLogService photoLogService;
 
-    @RequestMapping("add")
+    
+    // @RequestMapping(value="add", method=RequestMethod.POST)
+    @PostMapping("add")
     public Object add(
-            PhotoLog photolog,
-            String date,
-            String title,
-            String memo,
+            PhotoLog photoLog,
             MultipartFile[] files,
             HttpSession session) {
         System.out.println("add()...호출됨!test123");
+        System.out.println("====================");
+        System.out.println(files);
+        System.out.println(photoLog);
+        
         
         Member loginUser = 
                 (Member)session.getAttribute("loginUser");
         
-        photolog.setMemberNo(loginUser.getNo());
+        photoLog.setMemberNo(loginUser.getNo());
         
-        photoLogService.add(photolog);
+        photoLogService.add(photoLog);
         
         
         HashMap<String,Object> result = new HashMap<>();
-        result.put("date", date);
-        result.put("title", title);
-        result.put("memo", memo);
-        
         result.put("status", "success");
         
-        ArrayList<String> filenames = new ArrayList<>();
-        result.put("filenames", filenames);
+        ArrayList<String> photoFileList = new ArrayList<>();
+        result.put("photoFileList", photoFileList);
         
         try {
             for (MultipartFile file : files) {
@@ -60,11 +60,14 @@ public class PhotoLogController {
                 String newfilename = UUID.randomUUID().toString(); 
                 String path = sc.getRealPath("/files/" + newfilename);
                 file.transferTo(new File(path));
-                filenames.add(newfilename);
+                photoFileList.add(newfilename);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        photoLog.setPhotoFiles(photoFileList);
+        
         return result;
     }
     
